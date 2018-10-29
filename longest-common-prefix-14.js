@@ -22,7 +22,6 @@ var longestCommonPrefix = function (strs) {
     letters: null,
   }
   function getCommon(pre, cur) {
-    console.log('pre: ' + pre + '  cur: ' + cur)
     if (pre.charAt(result.count) === cur.charAt(result.count)) {
       if (!result.letters) {
         result.letters = pre.charAt(result.count)
@@ -31,16 +30,19 @@ var longestCommonPrefix = function (strs) {
         result.letters += pre.charAt(result.count)
         result.count++
       }
+      console.log(1111)
       getCommon(pre, cur)
     } else {
       result.count = 0
     }
-    return cur
+    // console.log('pre: ' + pre + '  cur: ' + cur)
+    return result.letters === null ? cur : result.letters
   }
   // strs.reduce(getCommon)
-  console.log(getCommon('nana','naba'))
-  return result
+  console.log(getCommon('nana','list'))
+  // return result
 }
 
-console.log(longestCommonPrefix(['list', 'long', 'loveforever', 'cat']))
+//console.log(longestCommonPrefix(['list', 'long', 'loveforever', 'cat']))
 //console.log(longestCommonPrefix())
+longestCommonPrefix()
